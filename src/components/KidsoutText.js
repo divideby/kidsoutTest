@@ -3,8 +3,15 @@ import { Text } from "react-native";
 
 const KidsoutText = props => (
   <Text
-    style={{ fontFamily: props.bold ? "Lato-Bold" : "Lato-Regular" }}
     {...props}
+    style={[
+      {
+        color: "black",
+        fontSize: 15,
+        fontFamily: props.bold ? "Lato-Bold" : "Lato-Regular"
+      },
+      props.style
+    ]}
   >
     {props.children}
   </Text>
