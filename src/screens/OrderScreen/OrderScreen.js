@@ -12,11 +12,12 @@ import babyIcon from "./assets/icons/baby/baby.png";
 import checkIcon from "./assets/icons/check/check.png";
 import mapIcon from "./assets/icons/map/map.png";
 import commentIcon from "./assets/icons/comment/comment.png";
-
 import { mainColor } from "../../constants/colors";
 import { KidsoutText, KidsoutButton } from "../../components";
+import { increment } from "../../redux/Order/reducer";
 
 const OrderScreen = ({
+  increase,
   order: { cost, commission, child, features, location, comment }
 }) => (
   <View style={{ flex: 1 }}>
@@ -57,7 +58,10 @@ const OrderScreen = ({
     <View
       style={{ position: "absolute", width: "100%", padding: 20, bottom: 0 }}
     >
-      <KidsoutButton label={"Подтвердить"} />
+      <KidsoutButton
+        onPress={() => increase()}
+        label={"Подтвердить"}
+      />
     </View>
   </View>
 );
@@ -78,7 +82,13 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(OrderScreen);
+function mapDispatchToProps(dispatch) {
+  return {
+    increase: amount => dispatch(increment(amount))
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(OrderScreen);
 
 const styles = StyleSheet.create({
   orderScreen: {

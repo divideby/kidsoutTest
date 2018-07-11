@@ -12,7 +12,7 @@ const initialState = {
   comment: "Требуется бебиситтер к мальчику 2,5 лет, опыт работы желателен, ответственная, доброжелательная, внимательная к детям",
 };
 
-const { increment, decrement } = createActions({
+export const { increment, decrement } = createActions({
   INCREMENT: (amount = 1) => ({ amount }),
   DECREMENT: (amount = 1) => ({ amount: -amount })
 });
