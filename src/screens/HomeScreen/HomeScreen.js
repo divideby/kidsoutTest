@@ -1,12 +1,14 @@
 import React, { Component } from "react";
-import { Text, TouchableOpacity } from "react-native";
+
+import { KidsoutButton } from "../../components";
 
 class HomeScreen extends Component {
   render() {
-    return(
-      <TouchableOpacity onPress={() => this.props.navigation.navigate('Order')}>
-        <Text>Подтверждение заказа</Text>
-      </TouchableOpacity>
+    return (
+      <KidsoutButton
+        label={"Подтверждение заказа"}
+        onPress={() => this.props.navigation.navigate("Order")}
+      />
     );
   }
 }
